@@ -46,11 +46,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clase\Mysql_Master.cs" />
+    <Compile Include="Clase\Number_To_Image.cs" />
+    <Compile Include="Control\Adm_Laberinto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Adm_Laberinto.Designer.cs">
+      <DependentUpon>Adm_Laberinto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Memorama.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Memorama.designer.cs">
+      <DependentUpon>Memorama.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control\Laberinto3.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Control\Laberinto3.designer.cs">
       <DependentUpon>Laberinto3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\New_SL2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\New_SL2.designer.cs">
+      <DependentUpon>New_SL2.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -60,8 +79,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Control\Adm_Laberinto.resx">
+      <DependentUpon>Adm_Laberinto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\Memorama.resx">
+      <DependentUpon>Memorama.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Control\Laberinto3.resx">
       <DependentUpon>Laberinto3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\New_SL2.resx">
+      <DependentUpon>New_SL2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -74,6 +102,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -87,6 +116,120 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Z.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Y.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\X.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\W.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\V.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\U.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Q.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\O.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\N.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\M.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\J.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\I.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\G.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\F.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\E.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Que.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

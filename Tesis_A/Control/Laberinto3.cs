@@ -25,14 +25,14 @@ namespace Tesis_A.Control
         int cnivel_;
 
 
-        Stopwatch stopwatch = new Stopwatch();
+        Stopwatch Temporizador = new Stopwatch();
 
 
         public class Grid_0
         {
             public int a { get; set; }
             public int b { get; set; }
-            public bool v { get; set; }
+            public string v { get; set; }
             public string r { get; set; }
         }
 
@@ -41,7 +41,7 @@ namespace Tesis_A.Control
             InitializeComponent();
             cnivel_ = cnivel;
             Gen_Parametros();
-            stopwatch.Start();
+            Temporizador.Start();
         }
 
         public void Gen_Parametros()
@@ -50,13 +50,14 @@ namespace Tesis_A.Control
 
             Errores_Max = Convert.ToInt32(msqldb.msqldb_Select_Fields("cerrores_max", "Juegos_Niveles", " WHERE cjuego = 'Laberinto' AND cnivel = " + cnivel_.ToString()).ToList().Single()[0]);
 
-            Gen_Mas2 = msqldb.msqldb_Select("Laberinto", " WHERE cnivel = " + cnivel_.ToString()).ToList().Select(x => new
+            Gen_Mas2 = msqldb.msqldb_Select("J_Laberinto", " WHERE cnivel = " + cnivel_.ToString()).ToList().Select(x => new
             {
                 cinicio_1 = x.Field<string>("cinicio_1"),
                 cfin_1 = x.Field<string>("cfin_1"),
                 cdimension = x.Field<Int32>("cdimension"),
                 cnivel = x.Field<Int32>("cnivel"),
-                cniv_n = x.Field<Int32>("cniv_n")
+                cniv_n = x.Field<Int32>("cniv_n"),
+                cNiv_Cod = x.Field<string>("cNiv_Cod")
             }).ToList().OrderBy(x => rnd.Next()).Take(1).Single();
             Gen_Lab();
         }
@@ -94,16 +95,16 @@ namespace Tesis_A.Control
         public void Des_Lab()
         {
             gr1.Clear();
-            string Whe = " WHERE cnivel = " + Gen_Mas2.cnivel + " AND cniv_n = " + Gen_Mas2.cniv_n + " AND cvalor = 1";
+            string Whe = " WHERE  cjuego = 1 AND cNiv_Cod = '" + Gen_Mas2.cNiv_Cod + "' AND cvalor = 1";
 
-            msqldb.msqldb_Select("Laberinto_Det", Whe).ToList().ForEach(x =>
+            msqldb.msqldb_Select("Juegos_Det", Whe).ToList().ForEach(x =>
             {
                 gr1.Add(new Grid_0
                 {
                     a = x.Field<Int32>("cpos_x"),
                     b = x.Field<Int32>("cpos_y"),
                     r = x.Field<string>("ccodigo"),
-                    v = x.Field<bool>("cvalor")
+                    v = x.Field<string>("cvalor")
                 });
             });
 
@@ -126,7 +127,6 @@ namespace Tesis_A.Control
             lpb = panel1.Controls[0].Controls.OfType<PictureBox>().ToList();
 
         }
-
         public PictureBox pb()
         {
             CartasJuego = new PictureBox();
@@ -173,7 +173,7 @@ namespace Tesis_A.Control
 
             if (((PictureBox)sender).Name.ToString() == Gen_Mas2.cfin_1 && lpb.Where(x => x.BackColor == Color.White).Count() == 0)
             {
-                stopwatch.Stop();
+                Temporizador.Stop();
                 if (finish_game()){
                     MessageBox.Show(Juego_Completado.OrderBy(x => rnd.Next()).Take(1).ToList()[0].ToString() + " - Errores: " + lpb.Where(x => x.BackColor == Color.Red).Count().ToString());
                     Gen_Parametros();
@@ -183,12 +183,14 @@ namespace Tesis_A.Control
 
         public bool finish_game()
         {
-            try {
-                string Fiel_Ins = "(cjugador, cjuego, cnivel, cniv_n, cerrores, ctime)";
-                string Val_Ins = "('jugador_test', 'Laberinto', " + Gen_Mas2.cnivel + ", " + Gen_Mas2.cniv_n + ", " + lpb.Where(x => x.BackColor == Color.Red).Count() + ", '" + stopwatch.Elapsed.TotalSeconds.ToString().Replace(',', '.') + "')";
+            try
+            {
+                string Fiel_Ins = "(`cjugador`, `cjuego`, `cnivel`, `cniv_n`, `cerrores`, `ctime`, `cfecha`)";
+                string Val_Ins = "(" + Form1.usua + ", 1, " + Gen_Mas2.cnivel + ", " + Gen_Mas2.cniv_n + ", " + lpb.Where(x => x.BackColor == Color.Red).Count() + ", '" + Temporizador.Elapsed.TotalSeconds.ToString().Replace(',', '.') + "', NOW())";
                 msqldb.msqldb_insert_fields("Resultados", Fiel_Ins, Val_Ins);
                 return true;
-            } catch { return false; }
+            }
+            catch { return false; }
         }
 
         public bool True_Axis(string pos)

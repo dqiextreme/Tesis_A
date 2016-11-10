@@ -8,3 +8,6 @@ C:\Users\asoftware8\Documents\Visual Studio 2012\Projects\variado_2012\Tesis_A\T
 C:\Users\asoftware8\Documents\Visual Studio 2012\Projects\variado_2012\Tesis_A\Tesis_A\obj\Debug\Tesis_A.exe
 C:\Users\asoftware8\Documents\Visual Studio 2012\Projects\variado_2012\Tesis_A\Tesis_A\obj\Debug\Tesis_A.pdb
 C:\Users\asoftware8\Documents\Visual Studio 2012\Projects\variado_2012\Tesis_A\Tesis_A\obj\Debug\Tesis_A.Control.Laberinto3.resources
+C:\Users\asoftware8\Documents\Visual Studio 2012\Projects\variado_2012\Tesis_A\Tesis_A\obj\Debug\Tesis_A.Control.Memorama.resources
+C:\Users\asoftware8\Documents\Visual Studio 2012\Projects\variado_2012\Tesis_A\Tesis_A\obj\Debug\Tesis_A.Control.Adm_Laberinto.resources
+C:\Users\asoftware8\Documents\Visual Studio 2012\Projects\variado_2012\Tesis_A\Tesis_A\obj\Debug\Tesis_A.Control.New_SL2.resources
